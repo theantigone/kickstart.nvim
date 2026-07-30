@@ -4,4 +4,4 @@ vim.api.nvim_create_autocmd('PackLoad', {
   callback = function()
     require('pdf-preview').setup({})
   end,
-})\n
+})

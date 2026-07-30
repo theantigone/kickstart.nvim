@@ -10,4 +10,4 @@ vim.api.nvim_create_autocmd('PackLoad', {
     end
     require('refactoring').setup {}
   end,
-})\n
+})
