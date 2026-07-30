@@ -835,21 +835,14 @@ do
   require('conform').setup {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      -- You can specify filetypes to autoformat on save here:
-      local enabled_filetypes = {
-        lua = true,
-        python = true,
-        c = true,
-        cpp = true,
-        javascript = true,
-        golang = true,
-        rust = true,
+      -- You can specify filetypes to disable autoformat on save here:
+      local disable_filetypes = {
+        -- example = true,
       }
-      if enabled_filetypes[vim.bo[bufnr].filetype] then
-        return { timeout_ms = 500 }
-      else
+      if disable_filetypes[vim.bo[bufnr].filetype] then
         return nil
       end
+      return { timeout_ms = 500 }
     end,
     default_format_opts = {
       lsp_format = 'fallback', -- Use external formatters if configured below, otherwise use LSP formatting. Set to `false` to disable LSP formatting entirely.
