@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd('PackLoad', {
 
     require('dapui').setup {}
     require('nvim-dap-virtual-text').setup { commented = true }
-    
+
     local mason_path = vim.fn.stdpath 'data' .. '/mason/packages/debugpy/venv/bin/python'
     dap_python.setup(mason_path)
 
@@ -32,4 +32,5 @@ vim.api.nvim_create_autocmd('PackLoad', {
     vim.keymap.set('n', '<leader>dq', function() require('dap').terminate() end, opts)
     vim.keymap.set('n', '<leader>du', function() dapui.toggle() end, opts)
   end,
-})\n
+})
+
