@@ -11,7 +11,7 @@ local dap_python = require 'dap-python'
 require('dapui').setup {}
 require('nvim-dap-virtual-text').setup { commented = true }
 
-local mason_path = vim.fn.stdpath('data') .. '/mason/packages/debugpy/venv/bin/python'
+local mason_path = vim.fn.stdpath 'data' .. '/mason/packages/debugpy/venv/bin/python'
 dap_python.setup(mason_path)
 
 vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
