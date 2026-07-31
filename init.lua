@@ -735,7 +735,7 @@ do
   ---@type table<string, vim.lsp.Config>
   local servers = {
     clangd = {},
-    gopls = {},
+    --gopls = {},
     -- pyright = {},
     rust_analyzer = {},
     ty = {}, --faster python type checker
@@ -839,9 +839,7 @@ do
       local disable_filetypes = {
         -- example = true,
       }
-      if disable_filetypes[vim.bo[bufnr].filetype] then
-        return nil
-      end
+      if disable_filetypes[vim.bo[bufnr].filetype] then return nil end
       return { timeout_ms = 500 }
     end,
     default_format_opts = {
