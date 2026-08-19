@@ -854,14 +854,18 @@ do
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      -- VVV disable automatic removal of unused imports
-      formatters = {
-        ruff_fix = {
-          prepend_args = { '--unfixable', 'F401' },
-        },
-      },
-      -- ^^^ disable automatic removal of unused imports
+      markdown = { 'prettier' },
     },
+    -- VVV disable automatic removal of unused imports
+    formatters = {
+      prettier = {
+        prepend_args = { '--prose-wrap', 'always' },
+      },
+      ruff_fix = {
+        prepend_args = { '--unfixable', 'F401' },
+      },
+    },
+    -- ^^^ disable automatic removal of unused imports
   }
 
   vim.keymap.set({ 'n', 'v' }, '<leader>f', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
