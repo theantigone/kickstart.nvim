@@ -854,10 +854,15 @@ do
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      markdown = { 'prettier' },
+      markdown = { 'rumdl', 'prettier' },
     },
     -- VVV disable automatic removal of unused imports
     formatters = {
+      rumdl = {
+        command = 'rumdl',
+        args = { 'fmt', '-' },
+        stdin = true,
+      },
       prettier = {
         prepend_args = { '--prose-wrap', 'always' },
       },
