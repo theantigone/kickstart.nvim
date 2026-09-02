@@ -430,6 +430,12 @@ do
     styles = {
       comments = { italic = false }, -- Disable italics in comments
     },
+    on_highlights = function(hl, c)
+      hl.LineNr = { fg = '#d67936' } -- Orange for absolute line numbers
+      hl.LineNrAbove = { fg = '#d67936' } -- Orange for relative lines above
+      hl.LineNrBelow = { fg = '#d67936' } -- Orange for relative lines below
+      hl.CursorLineNr = { fg = '#ffb366', bold = true } -- Bright glowing orange for current line
+    end,
   }
 
   -- Load the colorscheme here.
