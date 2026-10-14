@@ -755,9 +755,10 @@ do
     debugpy = {},
     rumdl = {},
     jsonls = {},
-    prettier = {},
-    prettierd = {},
+    -- prettier = {},
+    -- prettierd = {},
     oxlint = {},
+    biome = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
     --    https://github.com/pmizio/typescript-tools.nvim
@@ -850,7 +851,7 @@ do
         -- example = true,
       }
       if disable_filetypes[vim.bo[bufnr].filetype] then return nil end
-      return { timeout_ms = 500 }
+      return { timeout_ms = 1500 }
     end,
     default_format_opts = {
       lsp_format = 'fallback', -- Use external formatters if configured below, otherwise use LSP formatting. Set to `false` to disable LSP formatting entirely.
@@ -862,9 +863,9 @@ do
       -- python = { "isort", "black" },
       python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
       --
-      -- You can use 'stop_after_first' to run the first available formatter from the list
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      markdown = { 'rumdl', 'prettier' },
+      -- javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { 'biome' },
+      markdown = { 'rumdl' },
     },
     -- VVV disable automatic removal of unused imports
     formatters = {
@@ -873,9 +874,9 @@ do
         args = { 'fmt', '-' },
         stdin = true,
       },
-      prettier = {
-        prepend_args = { '--prose-wrap', 'always' },
-      },
+      -- prettier = {
+      --   prepend_args = { '--prose-wrap', 'always', '--tab-width', '2' },
+      -- },
       ruff_fix = {
         prepend_args = { '--unfixable', 'F401' },
       },
