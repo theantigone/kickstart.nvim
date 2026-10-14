@@ -755,8 +755,8 @@ do
     debugpy = {},
     rumdl = {},
     jsonls = {},
-    -- prettier = {},
-    -- prettierd = {},
+    prettier = {},
+    prettierd = {},
     oxlint = {},
     biome = {},
     --
@@ -865,7 +865,7 @@ do
       --
       -- javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascript = { 'biome' },
-      markdown = { 'rumdl' },
+      markdown = { 'prettier', 'rumdl' },
     },
     -- VVV disable automatic removal of unused imports
     formatters = {
@@ -874,9 +874,9 @@ do
         args = { 'fmt', '-' },
         stdin = true,
       },
-      -- prettier = {
-      --   prepend_args = { '--prose-wrap', 'always', '--tab-width', '2' },
-      -- },
+      prettier = {
+        prepend_args = { '--prose-wrap', 'always', '--tab-width', '2' },
+      },
       ruff_fix = {
         prepend_args = { '--unfixable', 'F401' },
       },
